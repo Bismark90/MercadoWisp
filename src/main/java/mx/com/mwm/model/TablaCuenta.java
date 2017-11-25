@@ -37,11 +37,11 @@ public class TablaCuenta implements Serializable{
 	@Column(name="Password")
 	private String pass;
 	
-	@Column(name="E_Mail")
+	@Column(name="E_Mail",unique=true)
 	private String mail;
 	
 	@ManyToOne
-	@JoinColumn(name="Rol_Id_Rol")
+	@JoinColumn(name="Fk_Rol")
 	private Rol rol;
 
 	public TablaCuenta(String user, String pass, String mail) {

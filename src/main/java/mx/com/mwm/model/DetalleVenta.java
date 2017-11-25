@@ -19,12 +19,14 @@ public class DetalleVenta {
 	private int idDetalles;
 	
 	@ManyToOne
-	@JoinColumn(name="Venta_Id_Compra")
-	private Ventas idVenta;
+	@JoinColumn(name="Fk_Producto")
+	private Productos idProducto;
 	
 	@ManyToOne
-	@JoinColumn(name="T_Producto_Id_Producto")
-	private Productos idProducto;
+	@JoinColumn(name="Fk_Venta")
+	private Ventas idVenta;
+	
+	
 	
 	@Column(name="Cantidad_Producto")
 	private int cantidad;

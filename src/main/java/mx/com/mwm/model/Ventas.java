@@ -12,16 +12,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="T_Venta")
+@Table(name="t_Venta")
 public class Ventas {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Id_Venta")
 	private int idVenta;
 	
-	@ManyToOne
-	@JoinColumn(name="Id_Persona")
-	private Persona persona;
+	
 	
 	@Column(name="Monto_venta")
 	private float montoVenta;
@@ -32,6 +30,9 @@ public class Ventas {
 	@Column(name="Forma_Pago")
 	private String formaPago;
 	
+	@ManyToOne
+	@JoinColumn(name="Fk_Persona")
+	private Persona persona;
 	public Ventas() {
 		// TODO Auto-generated constructor stub
 	}

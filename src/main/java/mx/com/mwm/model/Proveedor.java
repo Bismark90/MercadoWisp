@@ -13,17 +13,17 @@ public class Proveedor {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idproveedor")
+	@Column(name="Id_Proveedor")
 	private int IdProveedor;
 	
-	@Column(name="nombre")
+	@Column(name="Nombre")
 	private String nombre;
 	
-	@Column(name="telefono")
+	@Column(name="Telefono")
 	private String telefono;
 	
-	@Column(name="direccion")
-	private String direccion;
+	@Column(name="Rfc")
+	private String rfc;
 	
 	public Proveedor() {
 		// TODO Auto-generated constructor stub
@@ -33,7 +33,7 @@ public class Proveedor {
 		super();
 		this.nombre = nombre;
 		this.telefono = telefono;
-		this.direccion = direccion;
+		this.rfc = direccion;
 	}
 
 	public int getIdProveedor() {
@@ -61,17 +61,17 @@ public class Proveedor {
 	}
 
 	public String getDireccion() {
-		return direccion;
+		return rfc;
 	}
 
 	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+		this.rfc = direccion;
 	}
 
 	@Override
 	public String toString() {
 		return "Proveedor [IdProveedor=" + IdProveedor + ", nombre=" + nombre + ", telefono=" + telefono
-				+ ", direccion=" + direccion + "]";
+				+ ", direccion=" + rfc + "]";
 	}
 	
 	

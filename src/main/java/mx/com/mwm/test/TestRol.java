@@ -1,9 +1,14 @@
-package mx.com.mwm.dao.impl;
+package mx.com.mwm.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 
+import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
+import org.hibernate.exception.ConstraintViolationException;
+
+import mx.com.mwm.dao.impl.RolDaoImpl;
 import mx.com.mwm.model.Direccion;
 
 import mx.com.mwm.model.Persona;
@@ -22,10 +27,10 @@ public class TestRol {
 		RolDaoImpl rol = new RolDaoImpl();
 
 		// se crea el Objeto Persona, el id es autoincrementable
-		Persona p = new Persona("karen", "Mayita", "Martinez", "954012");
+		Persona p = new Persona("Jorge", "Damian", "Vasquez", "954012342");
 
 		// se crea la tabla cuenta, el id es autoincrementable
-		TablaCuenta tc = new TablaCuenta("karencita-21", "1234", "k23@gmail");
+		TablaCuenta tc = new TablaCuenta("coco", "1234", "co7@gmail");
 
 		// al objeto cuenta se le asigna el Rol mediante el objeto rol de la clase
 		// RolDaompl
@@ -39,16 +44,31 @@ public class TestRol {
 		// se le asigna a la persona una direcion
 		p.setDireccion(d);
 
-		// se inicia la transaccion
-		em.getTransaction().begin();
-		// se persiste la tabla cuenta
-		em.persist(tc);
-		// se persiste la tabla direccion para que pueda persistirse despues la persna
-		em.persist(d);
-		em.persist(p);
-		em.getTransaction().commit();
-		em.close();
+		try {
+			// se inicia la transaccion
+			em.getTransaction().begin();
+			// se persiste la tabla cuenta
+			em.persist(tc);
+			// se persiste la tabla direccion para que pueda persistirse despues la persna
+			em.persist(d);
+			em.persist(p);
+			em.getTransaction().commit();
+		} 
+		catch (PersistenceException e){
+			
+			System.out.println("=================================>"+e.getCause());
+			
+			e.printStackTrace();
+			em.getTransaction().rollback();
+			
+		}
+		
+		finally {
+			em.close();
 
+		}
+		
+		
 	}
 
 	/*

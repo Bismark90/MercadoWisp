@@ -20,11 +20,11 @@ public class R_Pedido {
 	
 	
 	@ManyToOne
-	@JoinColumn(name="Id_Proveedor")
+	@JoinColumn(name="Fk_Proveedor")
 	private Proveedor proveedor;
 	
 	@ManyToOne
-	@JoinColumn(name="Id_Producto")
+	@JoinColumn(name="Fk_Producto")
 	private Productos producto;
 	
 	public R_Pedido() {

@@ -30,11 +30,11 @@ public class Facturas {
 	private String rfc;
 	
 	@OneToOne
-	@JoinColumn(name="Compra_id_Venta")
+	@JoinColumn(name="Fk_Venta")
 	private Ventas ventas;
 	
 	@ManyToOne
-	@JoinColumn(name="Persona_Id_Persona")
+	@JoinColumn(name="Fk_Persona")
 	private Persona persona;
 	
 	public Facturas() {

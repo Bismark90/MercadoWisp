@@ -40,11 +40,11 @@ public class Persona implements Serializable {
 	
 	
 	@OneToOne
-	@JoinColumn(name="T_Direccion_Id_Direccion")
+	@JoinColumn(name="Fk_Direccion")
 	private Direccion direccion;
 	
 	@OneToOne
-	@JoinColumn(name="T_Cuenta_Id_Cuenta")
+	@JoinColumn(name="Fk_Cuenta")
 	private TablaCuenta cuenta;
 
 
